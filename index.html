@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИП Хрюкин Е.А. - Производство металлоконструкций</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+    <script src="components/calculator.js"></script>
+    <script src="components/callback-form.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <custom-navbar></custom-navbar>
+<main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="relative bg-gray-900 rounded-2xl overflow-hidden mb-16">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Профессиональные металлоконструкции
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Изготовление и монтаж металлических конструкций любой сложности с гарантией качества
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#calculator" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Рассчитать стоимость
+                    </a>
+                    <a href="catalog.html" class="bg-transparent hover:bg-gray-800 border-2 border-white text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Наш каталог
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Наши преимущества</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="shield" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Гарантия качества</h3>
+                    <p class="text-gray-600">Используем только сертифицированные материалы и современное оборудование</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="clock" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Соблюдение сроков</h3>
+                    <p class="text-gray-600">Точно соблюдаем договорные сроки производства и монтажа</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                        <i data-feather="dollar-sign" class="text-amber-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Гибкие цены</h3>
+                    <p class="text-gray-600">Оптимальное соотношение цены и качества для каждого клиента</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calculator Section -->
+        <section id="calculator" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Калькулятор стоимости</h2>
+            <calculator-component></calculator-component>
+        </section>
+
+        <!-- Callback Section -->
+        <section class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-8 text-white mb-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Нужна консультация?</h2>
+                <p class="text-xl mb-6">Оставьте заявку и наш специалист свяжется с вами в течение 15 минут</p>
+                <callback-form></callback-form>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-8">Примеры наших работ</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative rounded-xl overflow-hidden shadow-md h-64">
+                    <img src="https://huggingface.co/spaces/Fruks/metalcraft-pro-forged-in-steel/resolve/main/images/i.webp" alt="Фермы" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Фермы</h3>
+                    </div>
+                </div>
+                <div class="group relative rounded-xl overflow-hidden shadow-md h-64">
+                    <img src="https://huggingface.co/spaces/Fruks/metalcraft-pro-forged-in-steel/resolve/main/images/i (1).webp" alt="Лестницы" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Лестницы</h3>
+                    </div>
+                </div>
+                <div class="group relative rounded-xl overflow-hidden shadow-md h-64">
+                    <img src="https://huggingface.co/spaces/Fruks/metalcraft-pro-forged-in-steel/resolve/main/images/i (2).webp" alt="Заборы" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                        <h3 class="text-white text-xl font-bold">Заборы</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="catalog.html" class="inline-block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                    Смотреть весь каталог
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="script.js"></script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+</body>
+</html>

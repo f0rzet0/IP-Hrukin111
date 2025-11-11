@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании - ИП Хрюкин Е.А.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="components/callback-form.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <custom-navbar></custom-navbar>
+<main class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8">О компании</h1>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div class="md:flex">
+                    <div class="md:w-1/2">
+                        <img src="http://static.photos/industry/1024x576/10" alt="Наше производство" class="w-full h-full object-cover">
+                    </div>
+                    <div class="md:w-1/2 p-8">
+                        <h2 class="text-2xl font-bold mb-4">ИП Хрюкин Е.А.</h2>
+                        <p class="text-gray-600 mb-4">Мы - современное предприятие по производству металлоконструкций, работающее на рынке с 2010 года.</p>
+                        <p class="text-gray-600 mb-4">Наша компания специализируется на изготовлении широкого спектра металлических конструкций для промышленного и гражданского строительства.</p>
+                        <p class="text-gray-600">За годы работы мы реализовали более 500 проектов различной сложности и масштаба.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8">Наши преимущества</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-amber-100 p-3 rounded-full mr-4">
+                                <i data-feather="check-circle" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Современное оборудование</h3>
+                                <p class="text-gray-600">Используем станки с ЧПУ и другое высокоточное оборудование для производства.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-amber-100 p-3 rounded-full mr-4">
+                                <i data-feather="check-circle" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Опытные специалисты</h3>
+                                <p class="text-gray-600">В нашей команде работают квалифицированные инженеры и монтажники с большим опытом.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-amber-100 p-3 rounded-full mr-4">
+                                <i data-feather="check-circle" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Соблюдение стандартов</h3>
+                                <p class="text-gray-600">Все изделия соответствуют ГОСТ и международным стандартам качества.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-amber-100 p-3 rounded-full mr-4">
+                                <i data-feather="check-circle" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Гибкие условия</h3>
+                                <p class="text-gray-600">Индивидуальный подход к каждому клиенту и гибкая система скидок.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+</div>
+
+        <section class="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-8 text-white mb-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Хотите сотрудничать с нами?</h2>
+                <p class="text-xl mb-6">Оставьте заявку и наш менеджер свяжется с вами для обсуждения деталей</p>
+                <callback-form></callback-form>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+/* Base styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* Animation classes */
+.transition-300 {
+    transition: all 0.3s ease;
+}
+
+.transition-500 {
+    transition: all 0.5s ease;
+}
+
+/* Custom button styles */
+.btn-amber {
+    background-color: #f59e0b;
+    color: white;
+}
+
+.btn-amber:hover {
+    background-color: #d97706;
+}
+
+/* Custom shadows */
+.shadow-custom {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive typography */
+@media (min-width: 768px) {
+    .text-responsive {
+        font-size: calc(1rem + 0.5vw);
+    }
+}
+
+/* Gradient text */
+.text-gradient {
+    background: linear-gradient(90deg, #f59e0b, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom form input styles */
+.input-custom {
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.input-custom:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+/* Custom checkbox */
+.checkbox-custom {
+    accent-color: #f59e0b;
+}
+
+/* Custom radio button */
+.radio-custom {
+    accent-color: #f59e0b;
+}
+/* Custom select */
+.select-custom {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    appearance: none;
+}
+
+.select-custom:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+/* Success message styles */
+.success-message {
+    display: none;
+    background-color: #10b981;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-top: 1rem;
+    text-align: center;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - MetalCraft Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+    <script src="components/callback-form.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <custom-navbar></custom-navbar>
+<main class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-8">Контакты</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">Наши контакты</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-full mr-4">
+                                <i data-feather="map-pin" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Адрес производства:</h3>
+                                <p class="text-gray-600">г. Челябинск, ул. Автодорожная, 5Бк1, 454008</p>
+</div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-full mr-4">
+                                <i data-feather="phone" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Телефон:</h3>
+              <p class="text-gray-600">+7 (919) 113-77-76</p>
+              <p class="text-gray-600">+7 (951) 477-26-48</p>
+</div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-full mr-4">
+                                <i data-feather="mail" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Email:</h3>
+              <p class="text-gray-600">050174050@mail.ru</p>
+              <p class="text-gray-600">050174050@mail.ru (для коммерческих предложений)</p>
+</div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-amber-100 p-2 rounded-full mr-4">
+                                <i data-feather="clock" class="text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Часы работы:</h3>
+                                <p class="text-gray-600">Пн-Пт: 9:00 - 18:00</p>
+                                <p class="text-gray-600">Сб-Вс: выходные</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">Форма обратной связи</h2>
+                    <callback-form></callback-form>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div id="map" style="width: 100%; height: 400px;"></div>
+                <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+                <script>
+                    ymaps.ready(init);
+                    function init() {
+                        var address = 'г. Челябинск, ул. Автодорожная, 5Бк1';
+                        
+                        // Геокодирование адреса
+                        ymaps.geocode(address, {
+                            results: 1
+                        }).then(function (res) {
+                            var firstGeoObject = res.geoObjects.get(0);
+                            var coordinates = firstGeoObject.geometry.getCoordinates();
+                            var bounds = firstGeoObject.properties.get('boundedBy');
+                            
+                            // Создаем карту с центром на найденном адресе
+                            var myMap = new ymaps.Map("map", {
+                                center: coordinates,
+                                zoom: 16,
+                                controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
+                            });
+                            
+                            // Создаем метку с найденным адресом
+                            var myPlacemark = new ymaps.Placemark(coordinates, {
+                                hintContent: 'ИП Хрюкин Е.А.',
+                                balloonContentHeader: 'Наш адрес',
+                                balloonContentBody: address + ', 454008',
+                                balloonContentFooter: 'Время работы: Пн-Пт 9:00-18:00'
+                            }, {
+                                preset: 'islands#redIcon',
+                                iconColor: '#f59e0b'
+                            });
+                            
+                            myMap.geoObjects.add(myPlacemark);
+                            
+                            // Устанавливаем границы карты
+                            myMap.setBounds(bounds, {
+                                checkZoomRange: true
+                            });
+                            
+                            // Добавляем панель маршрутизации
+                            var routeControl = new ymaps.control.RoutePanel({
+                                options: {
+                                    visible: true,
+                                    position: {
+                                        top: 50,
+                                        right: 10
+                                    }
+                                }
+                            });
+                            
+                            myMap.controls.add(routeControl);
+                            
+                            // Устанавливаем адрес назначения
+                            routeControl.routePanel.options.set({
+                                types: { auto: true },
+                                fromEnabled: false,
+                                toEnabled: true,
+                                to: address
+                            });
+                            
+                            // Открываем балун при загрузке
+                            myPlacemark.balloon.open();
+                        }).catch(function (error) {
+                            // В случае ошибки используем запасные координаты
+                            console.error('Ошибка геокодирования:', error);
+                            var myMap = new ymaps.Map("map", {
+                                center: [55.12349998045196, 61.37231531593247],
+                                zoom: 16,
+                                controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
+                            });
+                            
+                            var myPlacemark = new ymaps.Placemark([55.12349998045196, 61.37231531593247], {
+                                hintContent: 'ИП Хрюкин Е.А.',
+                                balloonContentHeader: 'Наш адрес',
+                                balloonContentBody: address + ', 454008',
+                                balloonContentFooter: 'Время работы: Пн-Пт 9:00-18:00'
+                            }, {
+                                preset: 'islands#redIcon',
+                                iconColor: '#f59e0b'
+                            });
+                            
+                            myMap.geoObjects.add(myPlacemark);
+                            myPlacemark.balloon.open();
+                        });
+                    }
+                </script>
+</div>
+<section class="mb-12">
+                <h2 class="text-3xl font-bold text-center mb-8">Как нас найти</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">На автомобиле</h3>
+                                <p class="text-gray-600 mb-4">От центра Челябинска по проспекту Ленина до пересечения с ул. Автодорожной. Поворот направо, затем 200 метров прямо.</p>
+<p class="text-gray-600">На территории предприятия есть бесплатная парковка для клиентов.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Общественным транспортом</h3>
+                                <p class="text-gray-600 mb-4">Трамваи №3, 7, 20 или автобусы №1, 5, 18 до остановки "Улица Автодорожная".</p>
+                                <p class="text-gray-600">От остановки 5 минут пешком по указателям "MetalCraft".</p>
+</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
